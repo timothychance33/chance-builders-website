@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chance Builders — Luxury Residential Construction | Benton, LA</title>
+  <meta name="description" content="Chance Builders delivers luxury spec homes and commercial construction throughout Northwest Louisiana. Based in Benton, LA — built with precision, delivered with integrity."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0c0f;
+      --dark: #111418;
+      --card: #161a20;
+      --border: #252b35;
+      --silver: #c8cdd6;
+      --silver-dim: #7a8190;
+      --white: #edeef0;
+      --gold: #b89a60;
+      --gold-light: #d4b87a;
+      --text: #dddfe3;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ── NOISE TEXTURE ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: .4;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 48px;
+      background: linear-gradient(to bottom, rgba(10,12,15,.95) 0%, transparent 100%);
+      backdrop-filter: blur(2px);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      color: var(--silver);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .nav-logo span {
+      color: var(--gold);
+      font-weight: 300;
+      font-style: italic;
+      font-size: 13px;
+      letter-spacing: 2px;
+      display: block;
+      margin-top: -3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--silver-dim);
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover { color: var(--silver); }
+
+    .nav-cta {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold) !important;
+      padding: 8px 20px;
+      border-radius: 1px;
+      transition: background .2s, color .2s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold) !important;
+      color: var(--black) !important;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(184,154,96,.06) 0%, transparent 70%),
+        linear-gradient(160deg, #0a0c0f 0%, #111820 50%, #0a0c0f 100%);
+    }
+
+    .hero-lines {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(184,154,96,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(184,154,96,.04) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 0%, transparent 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      text-align: center;
+      padding: 0 24px;
+      animation: fadeUp .9s ease both;
+    }
+
+    .hero-eyebrow {
+      font-size: 10px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      opacity: .5;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 8vw, 110px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: .95;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--silver-dim);
+      font-weight: 300;
+    }
+
+    .hero-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(18px, 3vw, 28px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--gold-light);
+      letter-spacing: 2px;
+      margin-bottom: 48px;
+      opacity: .85;
+    }
+
+    .hero-desc {
+      max-width: 480px;
+      margin: 0 auto 56px;
+      font-size: 13px;
+      line-height: 1.9;
+      color: var(--silver-dim);
+      letter-spacing: .5px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--black);
+      border: none;
+      padding: 14px 36px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      border-radius: 1px;
+      transition: background .2s, transform .15s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--silver);
+      border: 1px solid var(--border);
+      padding: 14px 36px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      border-radius: 1px;
+      transition: border-color .2s, color .2s;
+      display: inline-block;
+    }
+
+    .btn-ghost:hover { border-color: var(--silver); color: var(--white); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--silver-dim);
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, transparent, var(--gold));
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 0 48px;
+      margin: 0 auto;
+      max-width: 1100px;
+    }
+
+    .divider-line { flex: 1; height: 1px; background: var(--border); }
+    .divider-diamond {
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
+    /* ── SECTIONS ── */
+    section { position: relative; }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 100px 48px;
+    }
+
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--silver-dim);
+    }
+
+    /* ── STATS BAR ── */
+    .stats {
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stats-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 16px;
+      border-right: 1px solid var(--border);
+    }
+
+    .stat:last-child { border-right: none; }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--silver-dim);
+      font-weight: 500;
+    }
+
+    /* ── SERVICES ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 60px;
+    }
+
+    .service-card {
+      background: var(--dark);
+      padding: 44px 36px;
+      transition: background .2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s ease;
+    }
+
+    .service-card:hover { background: var(--card); }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      color: var(--gold);
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      opacity: .7;
+    }
+
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+
+    .service-desc {
+      font-size: 12px;
+      line-height: 1.8;
+      color: var(--silver-dim);
+      letter-spacing: .3px;
+    }
+
+    /* ── WHY US ── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-top: 60px;
+    }
+
+    .why-text p {
+      font-size: 13px;
+      line-height: 2;
+      color: var(--silver-dim);
+      margin-bottom: 16px;
+      letter-spacing: .3px;
+    }
+
+    .why-list {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .why-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 13px;
+      color: var(--silver-dim);
+      line-height: 1.6;
+    }
+
+    .why-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+
+    .why-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 44px;
+      position: relative;
+    }
+
+    .why-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 60px; height: 60px;
+      border-bottom: 1px solid var(--gold);
+      border-right: 1px solid var(--gold);
+      opacity: .3;
+    }
+
+    .why-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .why-card-sub {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+
+    .why-card p {
+      font-size: 13px;
+      line-height: 1.9;
+      color: var(--silver-dim);
+    }
+
+    /* ── CONTACT ── */
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      align-items: start;
+      margin-top: 60px;
+    }
+
+    .contact-info h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .contact-info p {
+      font-size: 13px;
+      line-height: 1.9;
+      color: var(--silver-dim);
+      margin-bottom: 32px;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-size: 13px;
+      color: var(--silver-dim);
+    }
+
+    .contact-detail-icon {
+      width: 32px;
+      height: 32px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+      font-size: 13px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .form-group { display: flex; flex-direction: column; gap: 7px; }
+
+    .form-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--silver-dim);
+      font-weight: 500;
+    }
+
+    .form-input {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 1px;
+      padding: 12px 16px;
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      outline: none;
+      transition: border-color .2s;
+      width: 100%;
+    }
+
+    .form-input:focus { border-color: var(--gold); }
+    .form-input::placeholder { color: var(--silver-dim); opacity: .5; }
+
+    textarea.form-input { resize: vertical; min-height: 120px; }
+
+    .form-submit {
+      background: var(--gold);
+      color: var(--black);
+      border: none;
+      padding: 14px 32px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 1px;
+      transition: background .2s;
+      align-self: flex-start;
+    }
+
+    .form-submit:hover { background: var(--gold-light); }
+
+    /* ── PORTAL BANNER ── */
+    .portal-banner {
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .portal-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .portal-text h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .portal-text p {
+      font-size: 13px;
+      color: var(--silver-dim);
+      line-height: 1.7;
+      max-width: 480px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 48px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      color: var(--silver);
+      text-transform: uppercase;
+    }
+
+    .footer-logo span {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--silver-dim);
+      font-weight: 300;
+      font-style: italic;
+      margin-top: 2px;
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: var(--silver-dim);
+      letter-spacing: .5px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--silver-dim);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: .4; }
+      50% { opacity: .9; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      nav { padding: 18px 24px; }
+      .nav-links { display: none; }
+      .section-inner { padding: 70px 24px; }
+      .stats-inner { grid-template-columns: 1fr 1fr; }
+      .stat { border-right: none; border-bottom: 1px solid var(--border); }
+      .stat:nth-child(even) { border-left: 1px solid var(--border); }
+      .services-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; gap: 40px; }
+      .contact-wrap { grid-template-columns: 1fr; gap: 48px; }
+      .form-row { grid-template-columns: 1fr; }
+      .portal-inner { flex-direction: column; text-align: center; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .divider { padding: 0 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      Chance Builders
+      <span>Benton, Louisiana</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://app.chancebuilders.com" class="nav-cta">Client Portal</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-lines"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Northwest Louisiana</div>
+      <h1 class="hero-title">
+        Built to<br/><em>Last a</em><br/>Lifetime
+      </h1>
+      <p class="hero-subtitle">Luxury Residential & Commercial Construction</p>
+      <p class="hero-desc">
+        Chance Builders delivers luxury spec homes and commercial construction throughout Northwest Louisiana. Uncompromising quality, transparent process, exceptional results.
+      </p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">Start Your Build</a>
+        <a href="#services" class="btn-ghost">Our Services</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      Scroll
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats reveal">
+    <div class="stats-inner">
+      <div class="stat">
+        <div class="stat-num">Luxury</div>
+        <div class="stat-label">Spec Homes</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Custom</div>
+        <div class="stat-label">Builds Available</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Commercial</div>
+        <div class="stat-label">Construction</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">NW</div>
+        <div class="stat-label">Louisiana Based</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-label">What We Do</div>
+        <h2 class="section-title">Built Right,<br/><em>Every Time</em></h2>
+      </div>
+      <div class="services-grid reveal">
+        <div class="service-card">
+          <div class="service-num">01</div>
+          <div class="service-name">Luxury Spec Homes</div>
+          <p class="service-desc">Our primary focus — high-end spec homes built in premiere Northwest Louisiana neighborhoods. Every finish, fixture, and detail is selected to attract discerning buyers who expect more than a production build.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-num">02</div>
+          <div class="service-name">Custom Home Construction</div>
+          <p class="service-desc">When you have a specific vision for your home, we bring it to life. Full-service custom builds from permit to certificate of occupancy — every milestone managed, every detail tracked.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-num">03</div>
+          <div class="service-name">Commercial Construction</div>
+          <p class="service-desc">From ground-up commercial builds to tenant improvements, Chance Builders brings the same precision and accountability to commercial projects that we deliver on every residential build.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider reveal"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+  <!-- ABOUT / WHY US -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="why-grid">
+        <div class="why-text reveal">
+          <div class="section-label">Why Chance Builders</div>
+          <h2 class="section-title">Your Home,<br/><em>Our Commitment</em></h2>
+          <p>Chance Builders was founded on a simple belief — that construction should be done right, on time, and without surprises. Whether it's a luxury spec home or a commercial build, we bring the same standard of craftsmanship and accountability to every project.</p>
+          <p>Based in Benton and building throughout Northwest Louisiana, we know this market, these communities, and the craftsmen who do exceptional work here.</p>
+          <div class="why-list">
+            <div class="why-item"><div class="why-dot"></div><span>Luxury spec homes in NW Louisiana's premier neighborhoods</span></div>
+            <div class="why-item"><div class="why-dot"></div><span>Commercial construction with the same quality as residential</span></div>
+            <div class="why-item"><div class="why-dot"></div><span>Fully transparent cost tracking — no surprise invoices</span></div>
+            <div class="why-item"><div class="why-dot"></div><span>Vetted local subcontractors with proven track records</span></div>
+            <div class="why-item"><div class="why-dot"></div><span>Client portal — track your project's progress from anywhere</span></div>
+          </div>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-card-title">Residential & Commercial</div>
+          <div class="why-card-sub">Northwest Louisiana</div>
+          <p>From luxury spec homes in Bossier Parish to commercial builds across the region — Chance Builders has the experience and the team to deliver on both sides of the industry.</p>
+          <br/>
+          <p>Every project we take on receives our full attention. We limit our active builds intentionally — because quality work demands focus, not just volume.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENT PORTAL BANNER -->
+  <div class="portal-banner reveal">
+    <div class="portal-inner">
+      <div class="portal-text">
+        <h3>Already Building With Us?</h3>
+        <p>Log into your client portal to track construction progress, review your selections, and stay connected to every phase of your build — from foundation to finish.</p>
+      </div>
+      <a href="https://app.chancebuilders.com" class="btn-primary">Access Client Portal →</a>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner">
+      <div style="text-align:center;max-width:640px;margin:0 auto;" class="reveal">
+        <div class="section-label" style="justify-content:center;">Get In Touch</div>
+        <h2 class="section-title">Ready to Build?<br/><em>Let's Talk.</em></h2>
+        <p style="font-size:13px;line-height:2;color:var(--silver-dim);margin-bottom:48px;">
+          Whether you're interested in one of our luxury spec homes or have a commercial project in mind, we'd love to hear from you. Give us a call or send us an email and we'll get back to you promptly.
+        </p>
+        <div style="display:flex;flex-direction:column;gap:16px;align-items:center;">
+          <a href="tel:3183445001" style="display:flex;align-items:center;gap:16px;background:var(--card);border:1px solid var(--border);padding:20px 40px;text-decoration:none;width:100%;max-width:420px;transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="width:40px;height:40px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:16px;flex-shrink:0;">📞</div>
+            <div style="text-align:left;">
+              <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--silver-dim);margin-bottom:4px;">Call Us</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--white);letter-spacing:1px;">(318) 344-5001</div>
+            </div>
+          </a>
+          <a href="mailto:chancebuildersllc@gmail.com" style="display:flex;align-items:center;gap:16px;background:var(--card);border:1px solid var(--border);padding:20px 40px;text-decoration:none;width:100%;max-width:420px;transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="width:40px;height:40px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:16px;flex-shrink:0;">📧</div>
+            <div style="text-align:left;">
+              <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--silver-dim);margin-bottom:4px;">Email Us</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--white);letter-spacing:.5px;">chancebuildersllc@gmail.com</div>
+            </div>
+          </a>
+          <a href="https://maps.google.com/?q=118+5th+Street+Suite+2B+Benton+LA+71006" target="_blank" style="display:flex;align-items:center;gap:16px;background:var(--card);border:1px solid var(--border);padding:20px 40px;text-decoration:none;width:100%;max-width:420px;transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="width:40px;height:40px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:16px;flex-shrink:0;">📍</div>
+            <div style="text-align:left;">
+              <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--silver-dim);margin-bottom:4px;">Visit Us</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--white);letter-spacing:.5px;">118 5th Street, Suite 2B<br/>Benton, LA 71006</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        Chance Builders
+        <span>Benton, Louisiana · Est. 2024</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="https://app.chancebuilders.com">Client Portal</a></li>
+      </ul>
+      <p class="footer-copy">© 2024 Chance Builders LLC · (318) 344-5001 · chancebuildersllc@gmail.com</p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Nav background on scroll
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.style.background = window.scrollY > 60
+        ? 'rgba(10,12,15,0.97)'
+        : 'linear-gradient(to bottom, rgba(10,12,15,.95) 0%, transparent 100%)';
+    });
+  </script>
+</body>
+</html>
